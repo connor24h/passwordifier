@@ -13,7 +13,9 @@ client = MongoClient("mongodb+srv://connor24h:ray1ray1@cluster0.dxcpr.mongodb.ne
 db = client["Passwords"]    # Accesses Database
 collection = db['List']     # Accesses Collection
 
-x = collection.find( {'url' : 'www.youtube.com'} ) # Edit with find( {'url' : 'www.youtube.com} ) to retrieve 
-for doc in x:
-    print(doc)
+def findItem(Type, URL):
+    x = collection.find( {str(Type) : str(URL)} ) # Edit with find( {'TYPE' : 'NAME'} ) to retrieve 
+    for doc in x:
+        print(doc)
 
+findItem("url","www.Youtube.com")

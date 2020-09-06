@@ -13,12 +13,24 @@ import csv                          # likely need to pip install:
 import urllib                       # ssl, bson, pymongo
 from bson import ObjectId
 
-
-
-
-
+                            # File below is csv to be sent to mongoDB
 with open(os.path.abspath("TAMU/HowdyHack2020/password_Management/mongo_export.csv"), 'r') as f1:
     csvrow = csv.reader(f1, delimiter = ",")
+    exportList = []
     for row in csvrow:
-        id = row[0]
+        Username = row[0]
         pwd = row[1]
+        url = row [2]
+        dict = {"Username" : Username , "Password" : pwd, "url" : url}
+        exportList.append(dict)
+
+# Accesses client
+client = MongoClient("mongodb+srv://connor24h:ray1ray1@cluster0.dxcpr.mongodb.net/Passwords?retryWrites=true&w=majority", authSource = "admin")
+
+db = client["Passwords"]    # Accesses Database
+collection = db['List']     # Accesses Collection
+
+
+out = collection.insert_many(exportList)
+out.inserted_ids
+print("Transfer Successful")

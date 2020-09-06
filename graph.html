@@ -40,48 +40,70 @@
   <section id="hero-layout" data-w-id="390c9858-96a6-4cd4-2c95-514dacddc4e3" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="section hero">
     <div class="w-container">
       <div class="w-row">
-        <img src="images/get_started.jpg" width="200" alt="" style="float: right">
+        <div class="w-container">
+        <h1 class="heading-9">Graph</h1>
+          <div>
+              <input type="file">
+              <textarea cols="30" rows="20" placeholder="text will appear here"></textarea>
+          </div>
+      <script></script>
+        <script>
+        let input = document.querySelector('input')
+        let textarea = document.querySelector('textarea')
+        input.addEventListener('change', () => {
+            let files = input.files;
+            if (files.length == 0) return;
+            const file = files[0];
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                const file = e.target.result;
+                const lines = file.split(/\r\n|\n/);
+                textarea.value = lines.join('\n');
+            };
+            reader.onerror = (e) => alert(e.target.error.name);
+            reader.readAsText(file);
+        });
+        </script>
+        <div id="chart" style="width: 800px; height: 500px; margin: 0 auto; border: 1px solid; margin-top: 50px"></div>
+        <script src="https://unpkg.com/@mongodb-js/charts-embed-dom@beta"></script>
+        <script>
+          const sdk = new ChartsEmbedSDK({
+            baseUrl: 'https://charts.mongodb.com/charts-project-0-lckuj',
+            showAttribution: false
+          });
+          const chart = sdk.createChart({ chartId: '553131b7-db8f-433d-8944-cf8d79daa68f' });
+          chart.render(document.getElementById('chart'));
+          function refresh(){
+            chart.refresh();
+          }
+          function filter(){
+            chart.setFilter({"address.country": "United States"})
+          }
+        </script>
+
+        <div id="chart" style="width: 800px; height: 500px; margin: 0 auto; border: 1px solid; margin-top: 50px"></div>
+        <script src="https://unpkg.com/@mongodb-js/charts-embed-dom@beta"></script>
+        <script>
+          const sdk = new ChartsEmbedSDK({
+            baseUrl: 'https://charts.mongodb.com/charts-project-0-lckuj',
+            showAttribution: false
+          });
+          const chart = sdk.createChart({ chartId: 'd74bbecd-5ff1-4217-bea2-95b0e178d943' });
+          chart.render(document.getElementById('chart'));
+          function refresh(){
+            chart.refresh();
+          }
+          function filter(){
+            chart.setFilter({"address.country": "United States"})
+          }
+        </script>
+
         <div class="column w-col w-col-9">
-          <h1 class="heading">A chrome extension built for keeping your password secure</h1>
-          <a href="#Scrolled" class="primary-button w-button">GET STARTED</a></div>
         <div class="w-col w-col-3"></div></div></div></section>
   <section id="Scrolled" class="section bg-dark">
     <div class="container w-container">
       <div class="grid-3-columns">
-        <div id="w-node-d63bac9179dc-86c68be0" class="card">
-          <img src="images/lock_key_icon.png" width="60" alt="">
-          <div class="card-title">Constant Tracking</div>
-          <div class="card-description">Passwordifier will continually track the passwords you input and store them in our secured database.</div></div>
-        <div id="w-node-e69d73dfaa18-86c68be0" class="card">
-          <img src="images/graph_icon.png" loading="lazy" width="54" alt="">
-          <div class="card-title">Data Visualization</div>
-          <div class="div-block"></div>
-          <div class="card-description">One of the unique features of our extension is the ability to view your password distribution across all websites.</div></div>
-        <div id="w-node-d60cd7993e10-86c68be0" class="card">
-          <img src="images/questionmark_cloud.png" loading="lazy" width="54" alt="">
-          <div class="card-title">Password Creator</div>
-          <div class="card-description">If you need help brainstorming a new and strong password, Passwordifier can help you.</div>
         </div></div></div>
-
-<!--
-      <div class="container w-container">
-        <div class="grid-3-columns"></div>
-        <div id="w-node-d63bac9179dc-86c68be0" class="card">
-          <img src="images/jack.jpg" width="150" alt="">
-          <div class="card-title1">Jack Sebastian</div>
-          <div class="card-description">Jack is currently a sophomore engineering student at Texas A&M University and is double majoring in computer science and applied mathematics. He was the one behind the idea of Passwordifier and did full-stack development to complete this project.</div></div>
-        <div id="w-node-e69d73dfaa18-86c68be0" class="card">
-          <img src="images/graph_icon.png" loading="lazy" width="54" alt="">
-          <div class="card-title1">Dakshika Srivastava</div>
-          <div class="div-block"></div>
-          <div class="card-description">One of the unique features of our extension is the ability to view your password distribution across all websites.</div></div>
-        <div id="w-node-d60cd7993e10-86c68be0" class="card">
-          <img src="images/questionmark_cloud.png" loading="lazy" width="54" alt="">
-          <div class="card-title1">Connor Hoglund</div>
-          <div class="card-description">If you need help brainstorming a new and strong password, Passwordifier can help you.</div>
-        </div></div></div>
-      -->
-
     <footer class="section footer">
       <div class="container w-container"><div class="grid-3-columns">
           <div class="footer-column"></div>

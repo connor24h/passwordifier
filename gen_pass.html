@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passwordifier - Generate Password</title>
+  <link rel="stylesheet" href="gen_pass.css">
+</head>
+<body>
+  <div class="title">
+    <h2>Passwordifier</h2>
+    <h3>Generate strong custom passwords</h3>
+  </div>
+  <form class="form" id="generate" action="">
+    <label for="htown">What's your hometown?</label><br>
+    <input type="text" id="htown" name="htown" placeholder="College Station" required><br>
+    <label for="street">What street did you live at as a kid?</label><br>
+    <input type="text" id="street" name="street" placeholder="Baker" required><br>
+    <label for="nname">What's your nickname?</label><br>
+    <input type="text" id="nname" name="nname" placeholder="dope" required><br>
+    <!-- <input type="submit" id="submit" value="Generate Password"> -->
+    <button type="button" id="submit">Generate Password</button>
+  </form>
+  <div class="result">
+    <p>Your password can be: <span id="pass">PASSWORD</span> </p>
+    <button type="button" id="another">Try another one</button>
+  </div>
+  <button type="button" id="clear">Clear all fields</button>
+  <script src="gen_pass.js"></script>
+</body>
+</html>

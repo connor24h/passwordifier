@@ -23,7 +23,7 @@
         <nav role="navigation" class="nav-menu w-nav-menu">
           <a href="library.html" class="nav-link w-nav-link" style="max-width: 940px;">Library</a>
           <a href="graph.html" class="nav-link w-nav-link" style="max-width: 940px;">Graph</a>
-          <a href="mentor.html" class="nav-link w-nav-link" style="max-width: 940px;">Create</a>
+          <a href="create.html" class="nav-link w-nav-link" style="max-width: 940px;">Create</a>
           <div data-hover="" data-delay="0" class="w-dropdown" style="max-width: 940px;">
             <div class="w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
               <div class="w-icon-dropdown-toggle"></div>
@@ -44,7 +44,6 @@
         <h1 class="heading-9">Graph</h1>
           <div>
               <input type="file">
-              <textarea cols="30" rows="20" placeholder="text will appear here"></textarea>
           </div>
       <script></script>
         <script>
@@ -72,23 +71,6 @@
             showAttribution: false
           });
           const chart = sdk.createChart({ chartId: '553131b7-db8f-433d-8944-cf8d79daa68f' });
-          chart.render(document.getElementById('chart'));
-          function refresh(){
-            chart.refresh();
-          }
-          function filter(){
-            chart.setFilter({"address.country": "United States"})
-          }
-        </script>
-
-        <div id="chart" style="width: 800px; height: 500px; margin: 0 auto; border: 1px solid; margin-top: 50px"></div>
-        <script src="https://unpkg.com/@mongodb-js/charts-embed-dom@beta"></script>
-        <script>
-          const sdk = new ChartsEmbedSDK({
-            baseUrl: 'https://charts.mongodb.com/charts-project-0-lckuj',
-            showAttribution: false
-          });
-          const chart = sdk.createChart({ chartId: 'd74bbecd-5ff1-4217-bea2-95b0e178d943' });
           chart.render(document.getElementById('chart'));
           function refresh(){
             chart.refresh();

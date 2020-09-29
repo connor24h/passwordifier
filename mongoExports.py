@@ -14,7 +14,7 @@ import urllib                       # ssl, bson, pymongo
 from bson import ObjectId
 
 # Accesses client - PRIVATE ===================================================================================================================
-client = MongoClient("mongodb+srv://connor24h:ray1ray1@cluster0.dxcpr.mongodb.net/Passwords?retryWrites=true&w=majority", authSource = "admin")
+client = MongoClient("mongodb+srv://connor24h:-PASSWORD-DELETED-AFTER-HOWDYHACK-@cluster0.dxcpr.mongodb.net/Passwords?retryWrites=true&w=majority", authSource = "admin")
 # =============================================================================================================================================
 
 
